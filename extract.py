@@ -14,6 +14,10 @@ parser.add_argument('-p', '--passwd', help="""Jira Password for user.""")
 args = parser.parse_args()
 
 pw = args.passwd
+if pw == 'TOKEN':
+   with open('TOKEN', 'r') as file:
+    pw = file.read().strip()
+
 username = args.uname
 
 config = {"user": f"{username}",
